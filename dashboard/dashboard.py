@@ -107,13 +107,14 @@ def worst_air_quality(df):
     return worst_air_quality
   
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "dashboard/all_cities_air_quality.csv")
+DATA = os.path.join(HERE, "all_cities_air_quality.csv")
 
 @st.cache_data
 def load_data():
     return pd.read_csv(DATA)
   
-df = load_data()
+df = pd.read_csv("all_cities_air_quality.csv")
+# df = load_data()
 df['date'] = pd.to_datetime(df[['year', 'month', 'day', 'hour']])
 
 min_date = df.date.min().date()
