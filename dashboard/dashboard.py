@@ -107,7 +107,7 @@ def worst_air_quality(df):
     return worst_air_quality
   
 HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "submission-data-sains/dashboard/all_cities_air_quality.csv")
+DATA = os.path.join(HERE, "submission-data-sience/dashboard/all_cities_air_quality.csv")
 
 @st.cache_data
 def load_data():
