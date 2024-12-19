@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import numpy as np
+import os.path
 sns.set(style="dark")
 
 def create_daily_pm25_df(df, station):
@@ -105,7 +106,14 @@ def worst_air_quality(df):
     
     return worst_air_quality
   
-df = pd.read_csv("all_cities_air_quality.csv")
+HERE = os.path.dirname(os.path.abspath(__file__))
+DATA = os.path.join(HERE, "submission-data-sains/dashboard/all_cities_air_quality.csv")
+
+@st.cache_data
+def load_data():
+    return pd.read_csv(DATA)
+  
+df = load_data()
 df['date'] = pd.to_datetime(df[['year', 'month', 'day', 'hour']])
 
 min_date = df.date.min().date()
