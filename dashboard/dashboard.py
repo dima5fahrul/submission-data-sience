@@ -4,6 +4,7 @@ import seaborn as sns
 import streamlit as st
 import numpy as np
 import os.path
+from pathlib import Path
 sns.set(style="dark")
 
 def create_daily_pm25_df(df, station):
@@ -106,15 +107,9 @@ def worst_air_quality(df):
     
     return worst_air_quality
   
-HERE = os.path.dirname(os.path.abspath(__file__))
-DATA = os.path.join(HERE, "all_cities_air_quality.csv")
+data = Path("all_cities_air_quality.csv")
 
-@st.cache_data
-def load_data():
-    return pd.read_csv(DATA)
-  
-df = pd.read_csv("all_cities_air_quality.csv")
-# df = load_data()
+df = pd.read_csv(data)
 df['date'] = pd.to_datetime(df[['year', 'month', 'day', 'hour']])
 
 min_date = df.date.min().date()
