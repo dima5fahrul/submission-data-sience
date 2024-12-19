@@ -113,7 +113,7 @@ DATA = os.path.join(HERE, "all_cities_air_quality.csv")
 def load_data():
     return pd.read_csv(DATA)
   
-df = pd.read_csv("all_cities_air_quality.csv")
+df = pd.read_csv(".data/all_cities_air_quality.csv")
 # df = load_data()
 df['date'] = pd.to_datetime(df[['year', 'month', 'day', 'hour']])
 
