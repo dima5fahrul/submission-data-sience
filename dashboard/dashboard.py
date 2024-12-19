@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 import numpy as np
-import os.path
-from pathlib import Path
 sns.set(style="dark")
 
 def create_daily_pm25_df(df, station):
