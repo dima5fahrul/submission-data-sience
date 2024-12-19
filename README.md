@@ -3,23 +3,20 @@
 ## Setup Environment - Anaconda
 
 ```
-conda create --name main-ds python=3.12
-conda activate main-ds
+conda create --name base python=3.12
+conda activate base
 pip install -r requirements.txt
 ```
 
-## Setup Environment - Shell/Terminal
+## Clone Github
 
 ```
-mkdir proyek_analisis_data
-cd proyek_analisis_data
-pipenv install
-pipenv shell
-pip install -r requirements.txt
+git clone https://github.com/dima5fahrul/submission-data-sience.git
+cd submission-data-sience
 ```
 
 ## Run steamlit app
 
 ```
-streamlit run dashboard.py
+streamlit run dashboard/dashboard.py
 ```
