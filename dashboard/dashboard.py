@@ -107,9 +107,7 @@ def worst_air_quality(df):
     
     return worst_air_quality
   
-data = Path("all_cities_air_quality.csv")
-
-df = pd.read_csv(data)
+df = pd.read_csv("dashboard/all_cities_air_quality.csv")
 df['date'] = pd.to_datetime(df[['year', 'month', 'day', 'hour']])
 
 min_date = df.date.min().date()
